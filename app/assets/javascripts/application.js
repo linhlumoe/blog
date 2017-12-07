@@ -10,6 +10,37 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
+//= require jquery.turbolinks
+//= require fancybox
+//= require owl.carousel
 //= require turbolinks
-//= require_tree .
+//= require nprogress
+//= require nprogress-turbolinks
+//= require simple_form-bootstrap
+//= require cocoon
+//= require highcharts
+//= require chartkick
+//= require select2
+//= require moment
+//= require bootstrap-datetimepicker
+//= require bootstrap-sprockets
+//= require_self
+
+$(function() {
+  $( ".select2" ).select2({
+    theme: "bootstrap"
+  });
+
+  $("#owl-carousel").owlCarousel({
+    loop: true,
+    autoPlay: true,
+    singleItem:true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+  });
+
+  $("#owl-carousel .owl-item").css("height", $(window).height())
+
+});
