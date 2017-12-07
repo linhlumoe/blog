@@ -1,0 +1,17 @@
+nav
+  .container
+    .row
+      .two.columns.logo.navbar-header
+        button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = image_tag('logo.png')
+      .ten.columns
+        #bs-example-navbar-collapse-1.wrapper.u-pull-right.collapse.navbar-collapse
+          ul
+            - ['Adam & Eve', 'Our Family', 'Big Moment', 'Favorite List', 'Our Blog', 'Contact'].each do |f|
+              li
+                = link_to f, '#'
+
