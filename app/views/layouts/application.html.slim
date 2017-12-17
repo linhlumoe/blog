@@ -3,7 +3,7 @@ html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      = content_for?(:title) ? yield(:title) : 'Mine'
+      = content_for?(:title) ? yield(:title) : "Kylie's Corner"
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Tempgen'}"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -14,9 +14,12 @@ html
     link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css"
   body
     header
-      = render 'layouts/carousel'
+      - if current_page?(root_url)
+        = render 'layouts/carousel'
       = render 'layouts/navigation'
     main[role="main"]
       / = render 'layouts/messages'
       = yield
+      - if current_page?(root_url)
+        = render 'layouts/contact'
       = render "layouts/footer"
