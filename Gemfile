@@ -185,7 +185,7 @@ gem 'puma', '~> 3.0'
 # app monitoring
 gem 'newrelic_rpm'
 # database gem
-gem 'pg'
+gem 'pg', '~> 0.20.0'
 # frontend javascript bugs tracker
 gem 'rollbar'
 # bakend exception listener
@@ -202,5 +202,6 @@ gem 'blazer'
 gem 'rails_db'
 gem 'rest-client', '~> 1.8'
 gem 'mini_magick'
+gem 'fog-aws'
 gem 'cancancan', '~> 2.0'
 gem 'actioncable', github: 'rails/actioncable', branch: 'archive'
