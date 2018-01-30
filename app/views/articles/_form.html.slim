@@ -1,0 +1,26 @@
+.container-fluid
+  - if @article.errors.any?
+    .row
+      .alert.alert-danger
+        h6 Please correct the following errors:
+        ul
+          - @article.errors.full_messages.each do |msg|
+            li = msg
+
+  = form_for(@article) do |f|
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :summary
+      = f.text_area :summary, rows: 2, class: 'form-control'
+    .form-group
+      = f.label :content
+      = f.cktext_area :content, class: 'form-control ckeditor'
+    center
+      - if @article.status == 0
+        .publish-option
+          = f.check_box :status
+          | PUBLIC NOW
+      br
+      = f.submit yield(:button_text), class: "btn btn-primary submit-form"

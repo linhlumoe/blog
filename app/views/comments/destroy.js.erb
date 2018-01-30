@@ -1,0 +1,5 @@
+var id = '<%= @cmt_id%>';
+$('.row-' + id).remove();
+if($('.comment-row').length == 0) {
+  $('.all-comment').append('<p class= "date-time text-center"> There are no comments in this article.</p>');
+}

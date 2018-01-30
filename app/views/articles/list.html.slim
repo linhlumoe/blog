@@ -1,0 +1,16 @@
+= provide(:title, 'Article List')
+section.list
+  h1.title All article
+  .container
+    - @articles.each do |article|
+      .row
+        .col-md-2.col-md-offset-1
+          = gravatar_for article.user, size: 100
+          h5.writer.text-pink = article.user.name
+        .col-md-8
+          .well
+            = link_to article.title, article_path(article), class: 'list-title'
+            p.list-summary = article.summary
+            p.list-time = "#{time_ago_in_words(article.updated_at)} ago"
+      hr
+    = paginate @articles

@@ -1,0 +1,30 @@
+section.show
+  .container
+    .row.title = @article.title
+    .row.date-time = "#{time_ago_in_words(@article.updated_at)} ago"
+    .row.summary = @article.summary
+    .row.content = @article.content.html_safe
+    .row.writer = "by #{@article.user.name}"
+    .comment
+      .row
+        hr
+        .recent-post Comment
+        .intro
+          | Let me know your feeling or anything you want to share.
+      .row.comment-form
+        = render 'comment_form'
+      .row.all-comment
+        - if @comments.count == 0
+          p.date-time.text-center There are no comments in this article.
+        - if @comments.count == 1
+          = render 'comment', comment: @comments[0]
+        - else
+          - @comments.each do |comment|
+            = render 'comment', comment: comment
+    .row
+      hr
+      .recent-post Recent post
+      ul.list-post
+        - @articles.each do |article|
+          li = link_to article.title, article_path(article)
+

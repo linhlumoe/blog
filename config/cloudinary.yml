@@ -1,0 +1,11 @@
+development:
+  cloud_name: 'dx0uzywra'
+  api_key: '934926226299792'
+  api_secret: 'qdnnYYQo8qSBefC-lRyrVZnui-w'
+  secure: true
+
+production:
+  cloud_name: <%= ENV["CLOUDINARY_CLOUD_NAME"] %>
+  api_key: <%= ENV["CLOUDINARY_ACCESS_KEY"] %>
+  api_secret: <%= ENV["CLOUDINARY_SECRET_KEY"] %>
+  secure: true

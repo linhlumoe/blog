@@ -5,6 +5,7 @@
 @import 'fancybox';
 @import 'owl.carousel';
 @import 'owl.theme';
+@import 'bootstrap-datetimepicker';
 
 html, body {
   height: 100%;
@@ -35,12 +36,24 @@ a {
   color: #ffffff;
 }
 
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
 .weight-400 {
   font-weight: 400;
 }
 
 .weight-600 {
   font-weight: 600;
+}
+
+.disabled {
+  display: none;
 }
 
 .title {
@@ -117,6 +130,14 @@ a {
     .title {
       font-family: 'Great Vibes';
       font-size: 8em;
+
+      i:hover {
+        -webkit-transform: rotateY(120deg);
+        -moz-transform: rotateY(120deg);
+        -ms-transform: rotateY(120deg);
+        -o-transform: rotateY(120deg);
+        transform: rotateY(120deg);
+      }
     }
 
     .welcome {
@@ -134,7 +155,7 @@ nav {
     height: 50px;
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
   }
   ul {

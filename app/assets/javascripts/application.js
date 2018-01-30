@@ -24,6 +24,7 @@
 //= require chartkick
 //= require select2
 //= require moment
+//= require ckeditor/init
 //= require bootstrap-datetimepicker
 //= require bootstrap-sprockets
 //= require_self
@@ -43,4 +44,42 @@ $(function() {
 
   $("#owl-carousel .owl-item").css("height", $(window).height())
 
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('.picture-preview').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#timeline_picture").change(function() {
+    readURL(this);
+  });
+
+
+  var timelineBlocks = $('.cd-timeline-block'),
+    offset = 0.8;
+
+  //hide timeline blocks which are outside the viewport
+  hideBlocks(timelineBlocks, offset);
+
+  //on scolling, show/animate timeline blocks when enter the viewport
+  $(window).on('scroll', function(){
+    (!window.requestAnimationFrame)
+      ? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
+      : window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
+  });
+
+  function hideBlocks(blocks, offset) {
+    blocks.each(function(){
+      ( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+    });
+  }
+
+  function showBlocks(blocks, offset) {
+    blocks.each(function(){
+      ( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+    });
+  }
 });

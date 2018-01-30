@@ -1,0 +1,32 @@
+= provide(:title, 'Article List')
+section.index
+  .container
+    h1.title Article List
+    .create-btn
+      i.glyphicon.glyphicon-hand-right
+      = link_to ' Create new article', new_article_path
+    .table-responsive
+      table.table.table-bordered
+        tr
+          th ID
+          th Title
+          th Content
+          th Status
+          th colspan = '2' Manage
+        - @articles.each do |article|
+          tr
+            td = article.id
+            td = article.title
+            td.list-content = article.content
+            - if article.status == 0
+              td.text-red Draft
+              td.text-center = link_to 'Edit', edit_article_path(article)
+              td.text-center = link_to 'Delete', article_path(article), method: :delete,
+                                  data: { confirm: "Are you sure?" }
+            - else
+              td.text-green Published
+              td.text-center colspan = '2'
+                = link_to 'Delete', article_path(article), method: :delete,
+                                  data: { confirm: "Are you sure?" }
+    = paginate @articles
+

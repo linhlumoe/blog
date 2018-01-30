@@ -1,0 +1,12 @@
+<% if @comment.errors.any? %>
+  $(".comment-form").html("<%= escape_javascript(render partial: 'articles/comment_form') %>");
+<% else %>
+  $(".comment-errors").remove();
+  $("#comment_name").val("");
+  $("#comment_commenter").val("");
+  $("#comment_phone").val("");
+  $("#comment_text").val("");
+  $(".all-comment > .date-time").remove();
+  $(".all-comment").prepend("<%= escape_javascript(render partial: 'articles/comment', locals: { comment: @comment }) %>");
+<% end %>
+
