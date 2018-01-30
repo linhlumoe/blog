@@ -1,0 +1,23 @@
+- if @comment.errors.any?
+  .row
+    .alert.alert-danger.comment-errors
+      h6 Please correct the following errors:
+      ul
+        - @comment.errors.full_messages.each do |msg|
+          li = msg
+
+= form_for(@comment, remote: true) do |f|
+  .container-fluid
+    .row
+      .four.columns
+        = f.text_field :name, placeholder: "Your Name", class: "u-full-width"
+      .four.columns
+        = f.email_field :commenter, placeholder: "Email", class: "u-full-width"
+      .four.columns
+        = f.text_field :phone, placeholder: "Phone", class: "u-full-width"
+    .row
+      = f.text_area :text, placeholder: "Your comment", class: "u-full-width"
+    .row
+      = f.text_field :article_id, class: "u-full-width disabled"
+    .text-center
+      = f.submit "Submit comment", class: "button button-primary center center"

@@ -1,0 +1,18 @@
+= provide(:title, 'Our timeline')
+section.list
+  h1.title Our Memory
+  .cd-container#cd-timeline
+    - @timelines.each do |m|
+      .cd-timeline-block
+        .cd-timeline-img.cd-movie
+          = image_tag('cd-icon-picture.svg')
+        /! cd-timeline-img
+        .cd-timeline-content
+          h2 = m.name_of_date
+          p = m.description
+          / = image_tag('carousel-1.jpg')
+          span.cd-date = m.date.strftime("%B %e, %Y")
+          = image_tag(m.picture)
+        /! cd-timeline-content
+      /! cd-timeline-block
+  /! cd-timeline

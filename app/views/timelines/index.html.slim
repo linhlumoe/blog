@@ -1,0 +1,28 @@
+= provide(:title, 'Timeline')
+section.index
+  .container
+    h1.title Memory List
+    .create-btn
+      i.glyphicon.glyphicon-hand-right
+      = link_to ' Create new moment', new_timeline_path
+    .table-responsive
+      table.table.table-bordered
+        tr
+          th ID
+          th Date
+          th Name of date
+          th Description
+          th Picture
+          th colspan = '2' Manage
+        - @timelines.each do |timeline|
+          tr
+            td = timeline.id
+            td = timeline.date
+            td = timeline.name_of_date
+            td = timeline.description
+            td = image_tag(timeline.picture_url(:thumb), alt: timeline[:name_of_date])
+            td.text-center = link_to 'Edit', edit_timeline_path(timeline)
+            td.text-center = link_to 'Delete', timeline_path(timeline), method: :delete,
+                                data: { confirm: "Are you sure?" }
+    = paginate @timelines
+

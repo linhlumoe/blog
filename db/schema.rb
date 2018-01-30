@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215135826) do
+ActiveRecord::Schema.define(version: 20180123100759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,22 @@ ActiveRecord::Schema.define(version: 20171215135826) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "status"
+    t.string   "summary"
   end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -30,15 +45,17 @@ ActiveRecord::Schema.define(version: 20171215135826) do
     t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "phone"
+    t.string   "name"
   end
 
   create_table "timelines", force: :cascade do |t|
-    t.date     "date"
     t.string   "name_of_date"
     t.text     "description"
     t.string   "picture"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.datetime "date"
   end
 
   create_table "users", force: :cascade do |t|

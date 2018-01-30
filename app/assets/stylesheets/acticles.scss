@@ -1,3 +1,117 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.list {
+  .well {
+  background-color: #fff2e6;
+  border-color: #ffcccc;
+    .list-title {
+      font-size: 30px;
+      color: #ef6a8a;
+      font-weight: 400;
+      text-decoration: none;
+    }
+    .list-summary {
+      padding-top: 10px;
+      font-size: 16px;
+    }
+    .list-time {
+      font-size: 14px;
+      font-style: italic;
+      color: gray;
+      line-height: 0.3;
+    }
+  }
+
+  .writer {
+    font-family: 'Great Vibes';
+  }
+}
+.show {
+  padding: 0px 5%;
+
+  .title {
+    text-align: left;
+    font-size: 6rem;
+    color: #ef6a8a;
+    margin-top: -60px;
+  }
+
+  .date-time {
+    font-size: 16px;
+    font-style: italic;
+    color: gray;
+    line-height: 0.5;
+    margin-bottom: 20px;
+  }
+
+  .summary {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .writer {
+    font-size: 14px;
+    font-style: italic;
+    color: gray;
+    text-align: right;
+  }
+
+  .content {
+    img {
+      width: 80% !important;
+      height: auto !important;
+    }
+  }
+
+  .comment {
+    .comment-row {
+      margin-top: 20px;
+
+      .text {
+        margin-top: 5px;
+      }
+
+      .date-time {
+        font-size: 12px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .recent-post {
+    font-size: 3rem;
+    color: #ef6a8a;
+    font-weight: 400;
+  }
+
+  .list-post {
+    list-style-type: disc;
+    color: #1EAEDB;
+    li {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.index {
+  .list-content {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.publish-option {
+  input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+  }
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #ef6a8a;
+}

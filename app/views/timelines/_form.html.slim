@@ -1,0 +1,33 @@
+.container-fluid.timeline-form
+  - if @timeline.errors.any?
+    .row
+      .alert.alert-danger
+        h6 Please correct the following errors:
+        ul
+          - @timeline.errors.full_messages.each do |msg|
+            li = msg
+
+  = form_for(@timeline) do |f|
+
+    .col-md-6
+      .form-group
+        = f.label 'Choose Day'
+        = f.date_field :date, class: 'form-control'
+      .form-group
+        = f.label :name_of_date
+        = f.text_field :name_of_date, class: 'form-control'
+      .form-group
+        = f.label :description
+        = f.text_area :description, rows: 2, class: 'form-control'
+      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
+      center
+        = f.submit yield(:button_text), class: "btn btn-primary submit-form"
+    .col-md-6
+      .picture
+        = link_to '#', remote: true
+          - if @timeline.picture?
+            = image_tag(@timeline.picture_url, alt: @timeline.name_of_date, class: 'picture-preview')
+            /, class: 'picture-preview'
+          - else
+            = image_tag('no-image.png', class: 'picture-preview')
+        / = image_tag(@timeline.picture_url(:thumb), alt: timeline[:name_of_date])

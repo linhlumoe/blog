@@ -1,0 +1,29 @@
+section.index
+  .container
+    h1.title User List
+    .table-responsive
+      table.table.table-bordered
+        tr
+          th ID
+          th Avatar
+          th Name
+          th Email
+          th Role
+          th Created at
+          th Updated at
+          / th Avatar
+          th colspan = '2' Manage
+        - @users.each do |user|
+          tr
+            td = user.id
+            td = gravatar_for user
+            td = user.name
+            td = user.email
+            td = user.role
+            td = user.created_at
+            td = user.updated_at
+            td
+              = link_to 'Delete', edit_user_registration_path(user), method: :delete,
+                                  data: { confirm: "Are you sure?" }
+    = paginate @users
+

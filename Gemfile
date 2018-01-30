@@ -155,7 +155,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
   gem 'rubocop'
 end
 group :production do
@@ -205,3 +205,6 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'cancancan', '~> 2.0'
 gem 'actioncable', github: 'rails/actioncable', branch: 'archive'
+gem 'ckeditor'
+gem 'bourbon'
+gem 'fallback'
