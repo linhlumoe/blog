@@ -11,3 +11,5 @@ class ArticleDecorator < Draper::Decorator
   #   end
 
 end
+
+
