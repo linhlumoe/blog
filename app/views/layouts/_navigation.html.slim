@@ -1,10 +1,10 @@
-nav.navbar role="navigation"
+nav.navbar.navbar-default role="navigation"
   .container
     .row
-      .two.columns.logo.navbar-header
+      .three.columns.logo.navbar-header
         = link_to root_path
           = image_tag('logo.png')
-      .ten.columns
+      .nine.columns
         button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
           span.sr-only Toggle navigation
           span.icon-bar
@@ -12,10 +12,8 @@ nav.navbar role="navigation"
           span.icon-bar
         #bs-example-navbar-collapse-1.wrapper.u-pull-right.collapse.navbar-collapse
           ul
-            li = link_to 'Adam & Eve', '#'
             li = link_to 'Blog', article_list_path
             li = link_to 'Big Moment', memory_list_path
-            li = link_to 'Contact', '#'
             - if user_signed_in?
               - if current_user.admin?
                 li.dropdown

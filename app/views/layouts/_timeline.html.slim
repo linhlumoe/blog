@@ -1,0 +1,35 @@
+section.timeline
+  h2.title.underline
+    | Our Loveline
+  .intro
+    | This blog is special and it deserve to be recorded and to be always remembered! My loveline is just summerize some of our important and happy moments.
+  ul.loveline
+    .list
+      .cd-container#cd-timeline
+        .cd-timeline-block
+          .cd-timeline-img.cd-movie
+            = image_tag('cd-icon-picture.svg')
+          /! cd-timeline-img
+          .cd-timeline-content
+            h2 Our First Kiss
+            p It wasn't that long, and it certainly wasn't the kind of kiss you see in movies these days, but it was wonderful in its own way, and all I can remember about the moment is that when our lips touched, I knew the memory would last forever.
+            span.cd-date 20/05/2015
+        .cd-timeline-block
+          .cd-timeline-img.cd-movie
+            = image_tag('cd-icon-picture.svg')
+          /! cd-timeline-img
+          .cd-timeline-content
+            h2 Got Engaged
+            p Her boyfriend gives her a Mercedes, [her friends] say, 'Oh, that's nice.' But her boyfriend gives her a diamond, they say, 'Oh, he's serious.' It's not just the gift of love-it's the gift of commitment. She's not jumping up and down because she got a diamond ring but because she got a guy!
+            span.cd-date 20/05/2017
+        .cd-timeline-block
+          .cd-timeline-img.cd-movie
+            = image_tag('cd-icon-picture.svg')
+          /! cd-timeline-img
+          .cd-timeline-content
+            h2 Got Married
+            p Marriage has made me a lot happier and I'm deeply in love with my wife, and I thank God for her every day.
+            span.cd-date 20/10/2018
+  .text-center
+    = link_to 'View More', memory_list_path, class: 'button button-primary'
+  .seperator

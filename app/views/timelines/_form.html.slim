@@ -19,7 +19,7 @@
       .form-group
         = f.label :description
         = f.text_area :description, rows: 2, class: 'form-control'
-      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
+      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'picture-choosing'
       center
         = f.submit yield(:button_text), class: "btn btn-primary submit-form"
     .col-md-6

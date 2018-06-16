@@ -3,7 +3,7 @@ html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      = content_for?(:title) ? yield(:title) : "Kylie's Corner"
+      = content_for?(:title) ? yield(:title) : "Laura's Corner"
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Tempgen'}"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -19,8 +19,7 @@ html
       = render 'layouts/navigation'
       = render 'layouts/message'
     main[role="main"]
-      / = render 'layouts/messages'
       = yield
-      - if current_page?(root_url)
-        = render 'layouts/contact'
+
       = render "layouts/footer"
+

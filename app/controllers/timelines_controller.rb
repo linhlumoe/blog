@@ -35,6 +35,7 @@ class TimelinesController < ApplicationController
   end
 
   def destroy
+    @timeline.remove_picture!
     @timeline.destroy
     redirect_to timelines_path, alert: 'Deleted memory successfully.'
   end

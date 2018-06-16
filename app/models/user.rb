@@ -5,11 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles, dependent: :destroy
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
-  enum role: [:visitor, :admin]
+  enum role: [:member, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :visitor
+    self.role ||= :member
   end
-  mount_uploader :avatar, AvatarUploader
 end

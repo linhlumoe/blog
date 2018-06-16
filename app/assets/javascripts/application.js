@@ -42,8 +42,6 @@ $(function() {
     autoplayHoverPause: true
   });
 
-  $("#owl-carousel .owl-item").css("height", $(window).height())
-
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -53,7 +51,8 @@ $(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#timeline_picture").change(function() {
+
+  $(".picture-choosing").change(function() {
     readURL(this);
   });
 
